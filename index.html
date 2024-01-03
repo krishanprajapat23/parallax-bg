@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax BG</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page-banner{
+        width: 100%;
+        position: relative;
+        max-width: 960px;
+        margin: 20px auto;
+        /* max-width: 100%;
+        margin: 0 auto; */
+    }
+
+    .content-sec {
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 15px;
+        border-radius: 0;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .bg-clr {
+        height: 180px;
+        width: 100%;
+        background: linear-gradient(rgb(0, 0, 0) 5%, rgb(161, 17, 184) 50%);
+        position: absolute;
+        top: 0px;
+    }
+
+    .bg-clr_sec {
+        background-color: rgb(0, 0, 0);
+        height: 140px;
+        margin-bottom: -40px;
+    }
+
+    .content-title-wrap {
+        position: absolute;
+        z-index: 999;
+        top: 32%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title {
+        color: rgb(255, 255, 255);
+        width: 960px;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    @media (max-width:991px){
+        .page-banner{
+            max-width: 767px;
+        }
+        .title {
+            width: 100%;
+            font-size: 20px;
+        }
+    }
+ 
+    @media (max-width:567px){
+        .bg-clr_sec{
+            margin-bottom: -20px;
+        }
+    }
+    
+    @keyframes moveForever {
+        0% {
+            transform: translate3d(-90px, 0px, 0px);
+        }
+
+        100% {
+            transform: translate3d(85px, 0px, 0px);
+        }
+    }
+
+    .waveContainer {
+        transform: scaleY(0.6);
+        background-color: rgb(161, 17, 184);
+        height: 120px;
+    }
+
+    .parallaxpath {
+        transition: all 0.1s ease-out 0s;
+    }
+
+    .parallax>use {
+        animation: moveForever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) 0s infinite normal none running;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
+    }
+
+
+    .waveContainer .parallax>use:nth-of-type(1) {
+        animation-delay: -2s;
+        animation-duration: 7s;
+    }
+
+    .waveContainer .parallax>use:nth-of-type(2) {
+        animation-delay: -3s;
+        animation-duration: 10s;
+    }
+
+    .waveContainer .parallax>use:nth-of-type(2) {
+        animation-delay: -3s;
+        animation-duration: 10s;
+    }
+
+    .waveContainer .parallax>use:nth-of-type(3) {
+        animation-delay: -4s;
+        animation-duration: 13s;
+    }
+  </style>
+  <body>
+    <div class="page-banner">
+        <div class="content-sec">
+            <div class="bg-clr"></div>
+            <div class="bg-clr_sec"></div>
+            <div class="content-title-wrap">
+                <h1 class="title">Parallax Animated Background</h1>
+            </div>
+            <div class="waveContainer">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <g class="parallax">
+                        <defs>
+                            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v14h-352z">
+                            </path>
+                        </defs>
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#f6f6f6"></use>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
